@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "AltinDevs Social Media Application ",
+  "license": "MIT",
+  "author": "Mansoor or MNS or MnsDew",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "nodemon ../client/src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.1",
+    "multer": "^2.0.1",
+    "normalize-url": "^8.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.10"
+  }
+}
