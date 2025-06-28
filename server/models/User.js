@@ -18,6 +18,10 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  avatar: {
+    type: String,
+    default: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
+  },    
 });
 
-module.exports = mongoose.model("user", UserSchema);
+module.exports = User = mongoose.model("user", UserSchema);

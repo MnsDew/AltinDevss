@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken'); // Import jsonwebtoken for token generation    
 require("dotenv").config();
+const multer = require('multer');
  //dotenv is a library for loading environment variables from a .env file
 const auth = (req, res, next) => {
 
@@ -27,4 +28,17 @@ const auth = (req, res, next) => {
 }
 }
 
-module.exports = {auth};
+const storage = multer.diskStorage({
+    destination: function(req, file , cb){
+        cb(null, "public/images")
+    },
+    filename: (req,file,cb) =>{
+        cb(null, `${req.user.id}-${file.originalname}`)
+    }
+
+
+})
+
+const upload = multer({storage: storage}).single("image");
+
+module.exports = {auth, upload};

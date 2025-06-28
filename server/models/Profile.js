@@ -111,6 +111,42 @@ const ProfileSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    followers: [ //followers is an array of objects that contains the user id of the users that are following the current user
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "user",
+            },
+            name: {
+                type: String,
+            },
+            avatar: {
+                type: String,
+            },
+            date: {
+                type: Date,
+                default: Date.now,
+            },
+      },
+    ],
+    following: [ //following is an array of objects that contains the user id of the users that the current user is following
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "user",
+            },
+            name: {
+                type: String,
+            },
+            avatar: {
+                type: String,
+            },
+            date: {
+                type: Date,
+                default: Date.now,
+            },
+       },
+    ],  
 });
 
 module.exports = Profile = mongoose.model("profile", ProfileSchema); //profile is the name of the collection in the database 
